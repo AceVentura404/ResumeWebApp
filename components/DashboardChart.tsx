@@ -22,10 +22,12 @@ type DashboardChartProps = {
 };
 
 export function DashboardChart({ data }: DashboardChartProps) {
+  const mutableData = [...data];
+
   return (
     <div className="h-64 w-full" aria-label="Deployments and incidents chart">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 12, right: 10, left: -8, bottom: 0 }}>
+        <LineChart data={mutableData} margin={{ top: 12, right: 10, left: -8, bottom: 0 }}>
           <CartesianGrid stroke="rgba(170, 180, 197, 0.12)" vertical={false} />
           <XAxis dataKey="day" tick={{ fill: '#AAB4C5', fontSize: 12 }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fill: '#AAB4C5', fontSize: 12 }} axisLine={false} tickLine={false} width={34} />
